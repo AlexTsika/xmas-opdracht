@@ -5,14 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OpenComponent } from './open/open.component';
 import { DoneComponent } from './done/done.component';
-import { ListViewComponent } from './list-view/list-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OpenComponent,
-    DoneComponent,
-    ListViewComponent
+    DoneComponent
   ],
   imports: [
     BrowserModule,

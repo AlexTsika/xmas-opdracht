@@ -1,38 +1,13 @@
 {
   "Todoitems": [
     {
-      "name": "fsddfdfssdf",
-      "open": true,
-      "id": 1
-    },
-    {
-      "name": "ertert",
-      "open": true,
-      "id": 2
-    },
-    {
-      "name": "dgfdfgdfg",
-      "open": true,
-      "id": 3
-    },
-    {
-      "name": "sfdsdf",
-      "open": true,
-      "id": 4
-    },
-    {
-      "name": "dgfdfg",
-      "open": true,
-      "id": 5
-    },
-    {
-      "name": "mqskdfjqsdf",
-      "open": true,
+      "name": "punch a tree",
+      "open": false,
       "id": 6
     },
     {
-      "name": "fsqddfsqf",
-      "open": true,
+      "name": "slap your mom",
+      "open": false,
       "id": 7
     }
   ]

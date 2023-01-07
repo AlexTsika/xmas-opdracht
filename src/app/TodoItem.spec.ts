@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Inject } from '@angular/core';
+import { Repository } from './Repository.spec';
 
 @Injectable({
   providedIn: 'root'
@@ -13,23 +14,12 @@ export class TodoItem {
     this.Open = Open;
     this.Id = Id;
   }
-  async Create(){
-    let url = `http://localhost:3000/TodoItems?name=${this.Name}`
-    let result = await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify({name: this.Name, open: this.Open}),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json());
-    console.log(typeof result, result);
-    this.Id = result.id;
+  Update(@Inject(Boolean)Open: boolean, repository: Repository){
+    this.Open = Open;
+    repository.UpdateItem(this);
   }
-  Update(){
-
-  }
-  Delete(){
-
+  Delete(repository: Repository){
+    repository.DeleteItem(this);
   }
   
 }

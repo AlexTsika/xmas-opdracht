@@ -1,10 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { TodoItem } from '../TodoItem.spec';
-import { ListViewComponent } from '../list-view/list-view.component';
-import { Inject } from '@angular/core';
-
-
-
+import { Repository } from '../Repository.spec';
 @Component({
   selector: 'app-open',
   templateUrl: './open.component.html',
@@ -12,6 +8,7 @@ import { Inject } from '@angular/core';
 })
 export class OpenComponent {
   @ViewChild('input') input: any;
+  repository: Repository = new Repository()
   url = "http://localhost:3000/TodoItems";
   filterargs = { open : true };
   items: TodoItem[] = [];
@@ -19,20 +16,26 @@ export class OpenComponent {
     this.inialise();
   }
   async inialise() {
-    let result = await fetch(this.url).then(response => response.json());
-    this.items = result.map(function(element:any){
-      return new TodoItem(element.name, element.open, element.id);
-    });
-    console.log("items", this.items);
-    this.items.forEach(function(element: any) {
-      console.log(element);
-    });
+    this.items = await this.repository.FetchAllItems();
 
   }
   async createItem(value:string) {
-    let newItem = new TodoItem (value, true , 0)
-    await newItem.Create();
-    this.items.push(newItem);
-    this.input.nativeElement.value = '';
+    if(!value || !value.trim()){
+      // nix doen, returnen
+      return
+   }
+
+   this.items.push(await this.repository.CreateItem(value));
+   this.input.nativeElement.value = '';
+  }
+  async markItemDone(id:number){
+    let thisItem = this.items.filter(item => item.Id === id)[0];
+    thisItem.Update(false, this.repository);
+  }
+  async removeItem(id:number){
+    let thisItem = this.items.filter(item => item.Id === id)[0];
+    thisItem.Delete(this.repository);
+    // uit den array halen
+    this.items = this.items.filter(item => item.Id != id);
   }
 }
