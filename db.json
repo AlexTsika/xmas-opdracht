@@ -29,6 +29,11 @@
       "name": "make a keyup enter event to add task",
       "open": false,
       "id": 13
+    },
+    {
+      "name": "style to do list",
+      "open": false,
+      "id": 14
     }
   ]
 }

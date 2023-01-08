@@ -19,23 +19,25 @@ export class OpenComponent {
     this.items = await this.repository.FetchAllItems();
 
   }
+  // create item
   async createItem(value:string) {
     if(!value || !value.trim()){
-      // nix doen, returnen
       return
    }
 
    this.items.push(await this.repository.CreateItem(value));
    this.input.nativeElement.value = '';
   }
+  // mark item done
   async markItemDone(id:number){
     let thisItem = this.items.filter(item => item.Id === id)[0];
     thisItem.Update(false, this.repository);
   }
+  // delete item
   async removeItem(id:number){
     let thisItem = this.items.filter(item => item.Id === id)[0];
     thisItem.Delete(this.repository);
-    // uit den array halen
+
     this.items = this.items.filter(item => item.Id != id);
   }
 }

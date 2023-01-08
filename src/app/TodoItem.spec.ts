@@ -5,6 +5,7 @@ import { Repository } from './Repository.spec';
 @Injectable({
   providedIn: 'root'
 })
+// To Do Item
 export class TodoItem {
     Name: string;
     Open: boolean;
@@ -14,10 +15,12 @@ export class TodoItem {
     this.Open = Open;
     this.Id = Id;
   }
+  // edit
   Update(@Inject(Boolean)Open: boolean, repository: Repository){
     this.Open = Open;
     repository.UpdateItem(this);
   }
+  // delete
   Delete(repository: Repository){
     repository.DeleteItem(this);
   }

@@ -20,14 +20,15 @@ export class DoneComponent {
     this.items = await this.repository.FetchAllItems();
 
   }
+  // set item to open
   async markItemOpen(id:number){
     let thisItem = this.items.filter(item => item.Id === id)[0];
     thisItem.Update(true, this.repository);
   }
+  // delete item
   async removeItem(id:number){
     let thisItem = this.items.filter(item => item.Id === id)[0];
     thisItem.Delete(this.repository);
-    // uit den array halen
     this.items = this.items.filter(item => item.Id != id);
   }
 }

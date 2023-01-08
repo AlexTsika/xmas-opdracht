@@ -8,6 +8,7 @@ export class Repository {
           return new TodoItem(element.name, element.open, element.id);
         });
     }
+    // create
     async CreateItem(Name: string) : Promise<TodoItem> {
         let result = await fetch(this.url, {
             method: 'POST',
@@ -18,6 +19,7 @@ export class Repository {
           }).then(res => res.json());
         return new TodoItem(result.name, result.open, result.id);
     }
+    // edit
     async UpdateItem(item: TodoItem) {
         await fetch(`${this.url}/${item.Id}`, {
             method: 'PATCH',
@@ -28,6 +30,7 @@ export class Repository {
             }
         )
     }
+    // delete
     async DeleteItem(item: TodoItem) {
         await fetch(`${this.url}/${item.Id}`, { method: 'DELETE' })
     }
