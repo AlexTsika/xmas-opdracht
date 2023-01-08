@@ -1,7 +1,7 @@
 <table class="center rounded">
   <tr *ngFor="let item of items">
     <td *ngIf="!item.Open" class="p-3">{{item.Name}}</td>
-    <td *ngIf="!item.Open"><button class="btn btn-success m-1" (click)="markItemOpen(item.Id)">Re-open</button></td>
-    <td *ngIf="!item.Open"><button class="btn btn-danger m-1" (click)="removeItem(item.Id)">Remove</button></td>
+    <td *ngIf="!item.Open"><button class="btn btn-success m-1 xmas" (click)="markItemOpen(item.Id)">Re-open</button></td>
+    <td *ngIf="!item.Open"><button class="btn btn-danger m-1 xmas" (click)="removeItem(item.Id)">Remove</button></td>
   </tr>
 </table>

@@ -1,14 +1,34 @@
 {
   "Todoitems": [
     {
-      "name": "punch a tree",
+      "name": "start a to do list",
       "open": false,
-      "id": 6
+      "id": 8
     },
     {
-      "name": "slap your mom",
+      "name": "edit to do list",
       "open": false,
-      "id": 7
+      "id": 9
+    },
+    {
+      "name": "finish to do list",
+      "open": false,
+      "id": 10
+    },
+    {
+      "name": "send in to do list",
+      "open": true,
+      "id": 11
+    },
+    {
+      "name": "get a perfect score",
+      "open": true,
+      "id": 12
+    },
+    {
+      "name": "make a keyup enter event to add task",
+      "open": false,
+      "id": 13
     }
   ]
 }
